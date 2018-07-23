@@ -14,7 +14,7 @@ for other important settings with a non-standard value.
 
 ## Installation
 
-composer require jasny/reset-php.ini
+    composer require jasny/reset-php.ini
 
 _Automatically included, does not need to be called explicitly._
 
