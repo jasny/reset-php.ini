@@ -1,0 +1,15 @@
+{
+    "name": "jasny/reset-php.ini",
+    "description": "Standardized PHP configuration",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Arnold Daniels",
+            "email": "arnold@jasny.net"
+        }
+    ],
+    "require": {},
+    "autoload": {
+      "files": [ "reset.php" ]
+    }
+}
