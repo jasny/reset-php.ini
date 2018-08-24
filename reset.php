@@ -1,5 +1,7 @@
 <?php
 
+// Call construct is JS-like nonsense to leave no trace. No global variables or defined functions.
+
 call_user_func(function () {
     $settings = parse_ini_file(__DIR__ . "/reset.ini", true);
 
@@ -13,8 +15,12 @@ call_user_func(function () {
         if (((string)$expect ?: '0') !== ((string)$value ?: '0')) {
             $expectDesc = var_export($expect, true);
             $valueDesc = var_export($value, true);
-            trigger_error("$key should be $expectDesc is $valueDesc", E_USER_WARNING);
+            trigger_error("$key should be $expectDesc but is $valueDesc", E_USER_WARNING);
         }
+    }
+
+    foreach (array_diff(stream_get_wrappers(), ['file']) as $wrapper) {
+        stream_wrapper_unregister($wrapper);
     }
 
     if (ob_get_level()) {
