@@ -15,7 +15,8 @@ call_user_func(function () {
         if (((string)$expect ?: '0') !== ((string)$value ?: '0')) {
             $expectDesc = var_export($expect, true);
             $valueDesc = var_export($value, true);
-            trigger_error("$key should be $expectDesc but is $valueDesc", E_USER_WARNING);
+            trigger_error("PHP setting '$key' should be $expectDesc but is $valueDesc. "
+              . "Please modify php.ini and change this setting.", E_USER_WARNING);
         }
     }
 
